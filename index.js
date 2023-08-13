@@ -5,10 +5,10 @@ const port = 3000;
 const cvRoutes = require("./routes/cvRoutes");
 const userRoutes = require("./routes/userRoutes");
 const cors = require("cors");
-// const corsOptions = {
-//   origin: "https://voluble-fox-eca53d.netlify.app",
-//   optionsSuccessStatus: 200,
-// };
+const corsOptions = {
+  origin: "https://voluble-cobbler-80d492.netlify.app",
+  optionsSuccessStatus: 200,
+};
 require("dotenv").config();
 
 mongoose
@@ -21,8 +21,8 @@ mongoose
   .catch((error) => {
     console.log("Failed to connect to the Database", error);
   });
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+// app.use(cors());
 app.use(express.json());
 app.use("/cv", cvRoutes);
 app.use("/user", userRoutes);
